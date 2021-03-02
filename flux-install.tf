@@ -10,6 +10,12 @@ resource "kubernetes_namespace" "flux_system" {
     }
 }
 
+resource "kubernetes_namespace" "flux" {
+    metadata {
+        name = "flux"
+    }
+}
+
 # Split multi-doc YAML with
 # https://registry.terraform.io/providers/gavinbunney/kubectl/latest
 data "kubectl_file_documents" "apply" {
